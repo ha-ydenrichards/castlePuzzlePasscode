@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://u5bogxo0bp14"]
+
+[ext_resource type="Script" path="res://passcode.gd" id="1_vlfjr"]
+[ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://pixel background.png" id="2_2e184"]
+[ext_resource type="AudioStream" uid="uid://dkwa6bgmpclrq" path="res://snd_mtt_prebomb.wav" id="3_jahfg"]
+[ext_resource type="AudioStream" uid="uid://74uqwctldq1u" path="res://snd_dumbvictory.wav" id="4_lxjvl"]
+[ext_resource type="AudioStream" uid="uid://7bb14yjufbxy" path="res://snd_shock.wav" id="5_51atn"]
+[ext_resource type="AudioStream" uid="uid://gxjci74qq6mf" path="res://snd_arrow.wav" id="6_v501u"]
+[ext_resource type="AudioStream" uid="uid://m63ea117uq7f" path="res://snd_dimbox.wav" id="7_lxkaf"]
+
+[sub_resource type="FontFile" id="FontFile_d7yam"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/200/0/ascent = 0.0
+cache/0/200/0/descent = 0.0
+cache/0/200/0/underline_position = 0.0
+cache/0/200/0/underline_thickness = 0.0
+cache/0/200/0/scale = 1.0
+cache/0/200/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/200/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_hrgak"]
+default_font = SubResource("FontFile_d7yam")
+
+[sub_resource type="SystemFont" id="SystemFont_0rgj4"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_68t8s"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_biq0s"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_s6tna"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_akb4g"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_6e8ww"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_j74ko"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_uqhmt"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_4xtm0"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_1an6c"]
+font_names = PackedStringArray("Courier New")
+
+[node name="passcode" type="Node2D"]
+script = ExtResource("1_vlfjr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 1.0
+offset_top = 220.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="first_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hrgak")
+theme_override_fonts/font = SubResource("SystemFont_0rgj4")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="second_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_68t8s")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="third_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_biq0s")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="fourth_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_s6tna")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="fifth_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_akb4g")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="sixth_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_6e8ww")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="seventh_digit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j74ko")
+theme_override_font_sizes/font_size = 200
+text = "-"
+
+[node name="PixelBackground" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576, 324.5)
+scale = Vector2(1.125, 1.01411)
+texture = ExtResource("2_2e184")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 233.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_uqhmt")
+theme_override_font_sizes/font_size = 100
+text = "WELCOME TO PUZZLE
+CASTLE"
+horizontal_alignment = 1
+
+[node name="winning_text" type="Label" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_4xtm0")
+theme_override_font_sizes/font_size = 75
+text = "Well done.
+The secret keyword is:
+ INTEGRITY.
+Press SHIFT to exit
+ this screen."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="random_text" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 608.0
+offset_right = 1159.0
+offset_bottom = 631.0
+theme_override_fonts/font = SubResource("SystemFont_1an6c")
+theme_override_font_sizes/font_size = 20
+text = "Press ENTER to submit the passcode and SHIFT to reset."
+
+[node name="TypeDigit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jahfg")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lxjvl")
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_51atn")
+
+[node name="Delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v501u")
+
+[node name="Reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lxkaf")
