@@ -46,3 +46,4 @@ layout_mode = 2
 text = "Heart Spade Puzzle"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PasscodeButton" to="." method="_on_passcode_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HeartSpadeButton" to="." method="_on_heart_spade_button_pressed"]

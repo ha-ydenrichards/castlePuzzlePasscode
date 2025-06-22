@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg5fph4y5la8y"]
+
+[ext_resource type="Script" path="res://win_screen.gd" id="1_ael3r"]
+[ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://pixel background.png" id="1_okojg"]
+[ext_resource type="AudioStream" uid="uid://74uqwctldq1u" path="res://snd_dumbvictory.wav" id="3_udarh"]
+[ext_resource type="AudioStream" uid="uid://m63ea117uq7f" path="res://snd_dimbox.wav" id="4_n2k8q"]
+
+[sub_resource type="SystemFont" id="SystemFont_4jrs6"]
+font_names = PackedStringArray("Courier New")
+
+[node name="win_screen" type="Node2D"]
+script = ExtResource("1_ael3r")
+
+[node name="PixelBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(1.125, 1.01411)
+texture = ExtResource("1_okojg")
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_udarh")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_4jrs6")
+theme_override_font_sizes/font_size = 40
+text = "Well done. Here is your riddle:
+
+Where lullabies once softly played,
+And dreams in cribs and blankets stayed.
+Where some toys are tossed mid-air,
+But things move with gentle care.
+A gesture low, a subtle stand—
+The clue is cast underhand.
+
+Press SHIFT to exit.
+"
+horizontal_alignment = 1
+
+[node name="reset" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_n2k8q")

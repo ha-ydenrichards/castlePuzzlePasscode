@@ -1,0 +1,253 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxqos5dq1p7lt"]
+
+[ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://pixel background.png" id="1_acmgv"]
+[ext_resource type="Script" path="res://PixelBackground.gd" id="2_2q1bd"]
+[ext_resource type="Texture2D" uid="uid://baop36yhjp7t1" path="res://button.png" id="3_xpu02"]
+[ext_resource type="Texture2D" uid="uid://dmjvq24blxrcc" path="res://spade_button.JPG" id="4_gmh6l"]
+[ext_resource type="Texture2D" uid="uid://bkhra37bnuen4" path="res://pixel-art-suit-playing-cards-hearts-diamonds-clubs-spades-icon-for-8bit-game-on-white-background-vector.jpg" id="4_pva6e"]
+[ext_resource type="Texture2D" uid="uid://cj4etdgcbn7yy" path="res://diamond_button.JPG" id="5_4dr52"]
+[ext_resource type="Texture2D" uid="uid://d2tqgkdsttrai" path="res://swap_button.JPG" id="6_ljpgv"]
+[ext_resource type="AudioStream" uid="uid://cdeiv8v58nnc" path="res://snd_switchpull_n.wav" id="8_5aaj2"]
+[ext_resource type="AudioStream" uid="uid://ccuj53jrfvd1w" path="res://snd_mtt_prebomb.ogg" id="8_x8o7n"]
+[ext_resource type="AudioStream" uid="uid://m63ea117uq7f" path="res://snd_dimbox.wav" id="10_62fqv"]
+[ext_resource type="AudioStream" uid="uid://74uqwctldq1u" path="res://snd_dumbvictory.wav" id="11_jrvjo"]
+[ext_resource type="AudioStream" uid="uid://bsfptoqf568mo" path="res://SongThatMightPlayWhenYouFightSans.ogg" id="12_1imgn"]
+
+[sub_resource type="SystemFont" id="SystemFont_f4qw6"]
+font_names = PackedStringArray("Courier New")
+
+[node name="heartSpadePuzzle" type="Node2D"]
+
+[node name="PixelBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(1.125, 1.01411)
+texture = ExtResource("1_acmgv")
+script = ExtResource("2_2q1bd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_top = 72.0
+offset_right = 1152.0
+offset_bottom = 336.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_xpu02")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_xpu02")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_xpu02")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_xpu02")
+
+[node name="ButtonContainer" type="MarginContainer" parent="."]
+offset_top = 361.0
+offset_right = 1160.0
+offset_bottom = 649.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="SpadeButton" type="TextureButton" parent="ButtonContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_gmh6l")
+stretch_mode = 0
+
+[node name="DiamondButton" type="TextureButton" parent="ButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("5_4dr52")
+stretch_mode = 0
+
+[node name="SwapButton" type="TextureButton" parent="ButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_ljpgv")
+stretch_mode = 0
+
+[node name="ResetButton" type="TextureButton" parent="ButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_ljpgv")
+stretch_mode = 0
+
+[node name="Spade1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(200, 208)
+scale = Vector2(0.348214, 0.325)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(995.431, 0, 448.205, 480)
+
+[node name="Spade2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(451, 208)
+scale = Vector2(0.370536, 0.325)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(995.431, 0, 448.205, 480)
+
+[node name="Spade3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(701.5, 208)
+scale = Vector2(0.345982, 0.325)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(995.431, 0, 448.205, 480)
+
+[node name="Spade4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(952, 208)
+scale = Vector2(0.345982, 0.325)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(995.431, 0, 448.205, 480)
+
+[node name="Diamond1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(201.719, 205)
+scale = Vector2(0.372295, 0.354167)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(1480.84, 0, 439.161, 480)
+
+[node name="Diamond2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(452.859, 208)
+scale = Vector2(0.386603, 0.354167)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(1480.84, 0, 439.161, 480)
+
+[node name="Diamond3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(704, 208)
+scale = Vector2(0.386603, 0.354167)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(1480.84, 0, 439.161, 480)
+
+[node name="Diamond4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(952, 208)
+scale = Vector2(0.386603, 0.354167)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(1480.84, 0, 439.161, 480)
+
+[node name="Club1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(200, 208)
+scale = Vector2(0.336735, 0.333333)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 490.536, 480)
+
+[node name="Club2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(453.25, 208)
+scale = Vector2(0.347959, 0.333333)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 490.536, 480)
+
+[node name="Club3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(702.688, 208)
+scale = Vector2(0.331888, 0.333333)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 490.536, 480)
+
+[node name="Club4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(952, 208)
+scale = Vector2(0.337245, 0.333333)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 490.536, 480)
+
+[node name="Heart1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(200, 200)
+scale = Vector2(0.344828, 0.3375)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(508.252, 0, 464.149, 480)
+
+[node name="Heart2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(450, 200)
+scale = Vector2(0.353448, 0.3375)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(508.252, 0, 464.149, 480)
+
+[node name="Heart3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(700, 200)
+scale = Vector2(0.362069, 0.3375)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(508.252, 0, 464.149, 480)
+
+[node name="Heart4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(952, 200)
+scale = Vector2(0.362069, 0.3375)
+texture = ExtResource("4_pva6e")
+region_enabled = true
+region_rect = Rect2(508.252, 0, 464.149, 480)
+
+[node name="Swap or Reset" type="Label" parent="."]
+offset_left = 611.0
+offset_top = 354.0
+offset_right = 1093.0
+offset_bottom = 389.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_f4qw6")
+theme_override_font_sizes/font_size = 30
+text = "Swap           Reset"
+horizontal_alignment = 1
+
+[node name="Swap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5aaj2")
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x8o7n")
+
+[node name="Reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_62fqv")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jrvjo")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="win_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_1imgn")
+
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/SpadeButton" to="PixelBackground" method="_on_spade_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/DiamondButton" to="PixelBackground" method="_on_diamond_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/SwapButton" to="PixelBackground" method="_on_swap_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/ResetButton" to="PixelBackground" method="_on_reset_button_pressed"]
+[connection signal="timeout" from="Timer" to="PixelBackground" method="_on_timer_timeout"]
