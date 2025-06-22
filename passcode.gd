@@ -61,13 +61,9 @@ func _process(delta):
 		elif Input.is_action_just_pressed("Press_0"):
 			type_digit.play()
 			fill_correct_digit("0")
-		elif Input.is_action_just_pressed("delete_digit"):
-			if len(current_passcode) > 0:
-				delete_digit()
+
+	# Press enter to submit the password if you have seven characters
 	if Input.is_action_just_pressed("submit_password"):
-		print('hey')
-		print(current_passcode)
-		print(passcode)
 		if len(current_passcode) == 7:
 			if current_passcode == passcode:
 				win.play()
@@ -85,21 +81,28 @@ func _process(delta):
 				fifth_digit.text = "-"
 				sixth_digit.text = "-"
 				seventh_digit.text = "-"
+				
+	# Press Shift to reset all digits in the password
 	if Input.is_action_just_pressed("reset_password"):
-		reset.play()
-		title.show()
-		margin_container.show()
-		random_text.show()
-		winning_text.hide()
-		current_passcode = ""
-		first_digit.text = "-"
-		second_digit.text = "-"
-		third_digit.text = "-"
-		fourth_digit.text = "-"
-		fifth_digit.text = "-"
-		sixth_digit.text = "-"
-		seventh_digit.text = "-"
+		if len(current_passcode) > 0:
+			reset.play()
+			title.show()
+			margin_container.show()
+			random_text.show()
+			winning_text.hide()
+			current_passcode = ""
+			first_digit.text = "-"
+			second_digit.text = "-"
+			third_digit.text = "-"
+			fourth_digit.text = "-"
+			fifth_digit.text = "-"
+			sixth_digit.text = "-"
+			seventh_digit.text = "-"
+	elif Input.is_action_just_pressed("delete_digit"):
+			if len(current_passcode) > 0:
+				delete_digit()
 
+# Function updates the labels accordingly				
 func fill_correct_digit(digit) -> void:
 	print(first_digit)
 	if first_digit.text.contains("-"):
@@ -118,6 +121,7 @@ func fill_correct_digit(digit) -> void:
 		seventh_digit.text = digit
 	current_passcode += digit
 
+# Deletes each digit accordingly
 func delete_digit() -> void:
 	delete.play()
 	var passcode_length = len(current_passcode)
